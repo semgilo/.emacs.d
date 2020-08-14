@@ -1,0 +1,13 @@
+/auto-save-list
+/.session
+/session.*
+/custom.el
+*.elc
+*~
+/elpa
+/elpa-*
+site-lisp/package/
+/swank
+/history
+/recentf
+/projectile-bookmarks.eld
