@@ -2,7 +2,7 @@
 
 (require 'package)
 
-;; Make "site-lisp" is not exists.
+;; Make "site-lisp" if it is not exists.
 (setq site-lisp-path (expand-file-name "site-lisp" user-emacs-directory))
 (unless (file-exists-p site-lisp-path)
   (make-directory site-lisp-path))
