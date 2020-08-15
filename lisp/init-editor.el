@@ -155,6 +155,12 @@
   :hook (after-init . electric-pair-mode)
   :init (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
 
+;; Display available keybindings in popup
+(use-package which-key
+  :diminish
+  :bind ("C-h M-m" . which-key-show-major-mode)
+  :hook (after-init . which-key-mode))
+
 ;; ==========================================UI====================================================
 
 ;; Inhibit resizing frame

@@ -12,3 +12,5 @@ site-lisp/package/
 /recentf
 /projectile-bookmarks.eld
 places
+projectile.cache
+transient/
