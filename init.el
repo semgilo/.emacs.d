@@ -71,6 +71,11 @@ decrease this. If you experience stuttering, increase this.")
 (require 'init-editor)
 (require 'init-projectile)
 (require 'init-ivy)
+(require 'init-company)
+(require 'init-yasnippet)
+; (require 'init-lsp)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
