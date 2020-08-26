@@ -2,6 +2,9 @@
 
 (require 'package)
 
+(setq url-gateway-method 'socks)
+(setq socks-server '("Default server" "127.0.0.1" 10808 5))
+
 ;; Make "site-lisp" if it is not exists.
 (setq site-lisp-path (expand-file-name "site-lisp" user-emacs-directory))
 (unless (file-exists-p site-lisp-path)
@@ -10,6 +13,9 @@
 ;; Set ELPA packages
 (add-to-list 'package-archives '( "melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '( "gnu" . "https://elpa.gnu.org/packages/") t)
+
+(add-to-list 'package-archives '( "melpa" . "https://elpa.emacs-china.org/melpa/") t)
+(add-to-list 'package-archives '( "gnu" . "https://elpa.emacs-china.org/gnu/") t)
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized) ; To avoid warnings in 27
