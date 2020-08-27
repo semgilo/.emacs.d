@@ -34,4 +34,14 @@
   (setq lua-indent-string-contents t)
   (setq lua-prefix-key nil)
   )
+
+(use-package lsp-lua-emmy
+  :demand
+  :ensure nil
+  :load-path "~/.emacs.d/site-lisp/lsp-lua-emmy"
+  :hook (lua-mode . lsp)
+  :config
+  (setq lsp-lua-emmy-jar-path (expand-file-name "EmmyLua-LS-all.jar" user-emacs-directory))
+  )
+
 (provide 'init-lua)

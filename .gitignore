@@ -14,3 +14,5 @@ site-lisp/package/
 places
 projectile.cache
 transient/
+amx-items
+.lsp-session-*

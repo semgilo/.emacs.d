@@ -1,0 +1,3 @@
+[submodule "site-lisp/lsp-lua-emmy"]
+	path = site-lisp/lsp-lua-emmy
+	url = https://github.com/phenix3443/lsp-lua-emmy.git

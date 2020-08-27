@@ -53,7 +53,7 @@
   ;; Faster searching on Windows
   (when sys/win32p
     (when (or (executable-find "fd") (executable-find "rg"))
-      (setq projectile-indexing-method 'alien
+      (setq projectile-indexing-method 'native
             projectile-enable-caching nil))
 
     ;; FIXME: too slow while getting submodule files on Windows
