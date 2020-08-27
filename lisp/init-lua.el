@@ -26,6 +26,7 @@
 (use-package lua-mode
   :ensure t
   :mode "\\.lua$"
+  :interpreter "lua"
   :hook (
          (lua-mode . set-company-backends-for-lua)
          (lua-mode . lsp))
@@ -41,7 +42,7 @@
   :load-path "~/.emacs.d/site-lisp/lsp-lua-emmy"
   :hook (lua-mode . lsp)
   :config
-  (setq lsp-lua-emmy-jar-path (expand-file-name "EmmyLua-LS-all.jar" user-emacs-directory))
+  (setq lsp-lua-emmy-jar-path (expand-file-name "3rd/EmmyLua-LS-all.jar" user-emacs-directory))
   )
 
 (provide 'init-lua)
