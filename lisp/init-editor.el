@@ -6,10 +6,10 @@
 
 ;; Encoding
 ;; UTF-8 as the default coding system
-(when (fboundp 'set-charset-priority)
-  (set-charset-priority 'unicode))
+;; (when (fboundp 'set-charset-priority)
+;;   (set-charset-priority 'unicode))
 
-(semgilo/set-coding-system 'utf-8)
+;; (semgilo/set-coding-system 'utf-8)
 
 
 ;; History
