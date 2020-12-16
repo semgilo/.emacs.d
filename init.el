@@ -76,16 +76,18 @@ decrease this. If you experience stuttering, increase this.")
 (require 'init-lsp)
 
 (require 'init-lua)
+(require 'init-org)
+(require 'init-blog)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(lsp-mode pinyinlib counsel-tramp counsel-world-clock ivy-xref ivy-yasnippet counsel-projectile ivy-hydra amx projectile use-package pretty-hydra mwim multiple-cursors mixed-pitch gnu-elpa-keyring-update expand-region diminish benchmark-init)))
+   '(org-pomodoro org-tree-slide org-preview-html org-mime toc-org org-rich-yank ob-mermaid ob-ipython ob-rust ob-go org-fancy-priorities org-bullets ox-gfm ox-hugo lsp-mode pinyinlib counsel-tramp counsel-world-clock ivy-xref ivy-yasnippet counsel-projectile ivy-hydra amx projectile use-package pretty-hydra mwim multiple-cursors mixed-pitch gnu-elpa-keyring-update expand-region diminish benchmark-init)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-ellipsis ((t (:foreground nil)))))

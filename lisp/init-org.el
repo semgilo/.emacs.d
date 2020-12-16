@@ -265,38 +265,8 @@ prepended to the element after the #+HEADER: tag."
   ;; Add new template
   (add-to-list 'org-structure-template-alist '("n" . "note"))
 
-  ;; Use embedded webkit browser if possible
-  (when (featurep 'xwidget-internal)
-    (push '("\\.\\(x?html?\\|pdf\\)\\'"
-            .
-            (lambda (file _link)
-              (xwidget-webkit-browse-url (concat "file://" file))
-              (let ((buf (xwidget-buffer (xwidget-webkit-current-session))))
-                (when (buffer-live-p buf)
-                  (and (eq buf (current-buffer)) (quit-window))
-                  (pop-to-buffer buf)))))
-          org-file-apps))
-
-  ;; Add gfm/md backends
-  (use-package ox-gfm)
-  (add-to-list 'org-export-backends 'md)
-
   (with-eval-after-load 'counsel
     (bind-key [remap org-set-tags-command] #'counsel-org-tag org-mode-map))
-
-  ;; Prettify UI
-  (use-package org-bullets
-    :if (char-displayable-p ?⚫)
-    :hook (org-mode . org-bullets-mode)
-    :init (setq org-bullets-bullet-list '("⚫" "⚫" "⚫" "⚫")))
-
-  (use-package org-fancy-priorities
-    :diminish
-    :hook (org-mode . org-fancy-priorities-mode)
-    :init (setq org-fancy-priorities-list
-                (if (char-displayable-p ?⯀)
-                    '("⯀" "⯀" "⯀" "⯀")
-                  '("HIGH" "MEDIUM" "LOW" "OPTIONAL"))))
 
   ;; Babel
   (setq org-confirm-babel-evaluate nil
@@ -312,7 +282,7 @@ prepended to the element after the #+HEADER: tag."
                                (sass . t)
                                (C . t)
                                (java . t)
-                               (plantuml . t)))
+                               (lua . t)))
 
   ;; ob-sh renamed to ob-shell since 26.1.
   (if emacs/>=26p
@@ -334,50 +304,6 @@ prepended to the element after the #+HEADER: tag."
 
   (org-babel-do-load-languages 'org-babel-load-languages
                                load-language-list)
-
-  ;; Rich text clipboard
-  (use-package org-rich-yank
-    :bind (:map org-mode-map
-           ("C-M-y" . org-rich-yank)))
-
-  ;; Table of contents
-  (use-package toc-org
-    :hook (org-mode . toc-org-mode))
-
-  ;; Export text/html MIME emails
-  (use-package org-mime
-    :bind (:map message-mode-map
-           ("C-c M-o" . org-mime-htmlize)
-           :map org-mode-map
-           ("C-c M-o" . org-mime-org-buffer-htmlize)))
-
-  ;; Preview
-  (use-package org-preview-html
-    :diminish)
-
-  ;; Presentation
-  (use-package org-tree-slide
-    :diminish
-    :functions (org-display-inline-images
-                org-remove-inline-images)
-    :bind (:map org-mode-map
-           ("C-<f7>" . org-tree-slide-mode)
-           :map org-tree-slide-mode-map
-           ("<left>" . org-tree-slide-move-previous-tree)
-           ("<right>" . org-tree-slide-move-next-tree)
-           ("S-SPC" . org-tree-slide-move-previous-tree)
-           ("SPC" . org-tree-slide-move-next-tree))
-    :hook ((org-tree-slide-play . (lambda ()
-                                    (text-scale-increase 4)
-                                    (org-display-inline-images)
-                                    (read-only-mode 1)))
-           (org-tree-slide-stop . (lambda ()
-                                    (text-scale-increase 0)
-                                    (org-remove-inline-images)
-                                    (read-only-mode -1))))
-    :config
-    (org-tree-slide-simple-profile)
-    (setq org-tree-slide-skip-outline-level 2))
 
   ;; Pomodoro
   (use-package org-pomodoro

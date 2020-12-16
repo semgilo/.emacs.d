@@ -54,8 +54,8 @@
   (when sys/win32p
     (when (or (executable-find "fd") (executable-find "rg"))
       (setq projectile-indexing-method 'native
-            projectile-enable-caching nil))
-
+            projectile-enable-caching t))
+    (setq projectile-tags-command "ctags -Re -f \"%s\" %s %s")
     ;; FIXME: too slow while getting submodule files on Windows
     (setq projectile-git-submodule-command nil))
 

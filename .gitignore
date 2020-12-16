@@ -16,3 +16,5 @@ projectile.cache
 transient/
 amx-items
 .lsp-session-*
+/gtd
+bookmarks
